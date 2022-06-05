@@ -1,0 +1,23 @@
+{
+	"name": "sveltekit-auth0-js",
+	"version": "0.0.7",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview",
+		"prepare": "svelte-kit sync"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.44.0"
+	},
+	"dependencies": {
+		"@auth0/auth0-spa-js": "^1.22.0"
+	},
+	"exports": {
+		".": "./Sveltekit-Auth0.svelte"
+	},
+	"type": "module"
+}
