@@ -1,4 +1,14 @@
-# Create Sveltekit Project
+## Authentication - Sveltekit & Auth0
+
+If you are in need of authentication and you love Auth0 as much as I do, You've found the right package!
+
+Authentication can be one of the most frustrating parts of our creation process as developers and hopefully you find this as simple to use and save time.  Enjoy what you do and prosper at it!
+
+Follow the below instructions and you'll be up and running with Auth0 authentication in minutes.
+
+I use TailwindCSS so it setup with that in mind and if you do not, it will work just fine.
+
+## Create Sveltekit Project
 
 Visit the Docs [`Getting Started`](https://kit.svelte.dev/docs/introduction#getting-started).
 
@@ -64,33 +74,13 @@ npm i sveltekit-auth0-js
 pnpm i sveltekit-auth0-js
 ```
 
-#### Import and add into __layout.svelte
-```html
-<script>
-    import SveltekitAuth0 from "sveltekit-auth0-js/Sveltekit-Auth0.svelte";
-</script>
-
-<SveltekitAuth0>
-    <slot />
-</SveltekitAuth0>
-```
 #### Create or Edit .env file
-Testing
-- VITE_SHOW_LOGIN_BTNS set to true
-- VITE_SHOW_NAVBAR set to false
 
-Navbar usage
-- VITE_SHOW_LOGIN_BTNS set to false
-- VITE_SHOW_NAVBAR set to true
-
-##### .env (contents)
 ```env
 VITE_AUTH0_DOMAIN = <your-auth0-domain>
 VITE_AUTH0_CLIENT_ID = <your-auth0-client-id>
-VITE_LOGIN_REDIRECT_URL = <your-login-redirect-url>
-VITE_LOGOUT_REDIRECT_URL = <your-logout-redirect-url>
-VITE_SHOW_LOGIN_BTNS = true
-VITE_SHOW_NAVBAR = false
+VITE_LOGIN_REDIRECT_URL = "/somewhere"
+VITE_LOGOUT_REDIRECT_URL = "/somewhere-else"
 ```
 ##### Get Auth0 User Info once Logged in
 

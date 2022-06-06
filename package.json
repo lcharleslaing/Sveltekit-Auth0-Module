@@ -1,6 +1,6 @@
 {
   "name": "sveltekit-auth0-js",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -26,5 +26,11 @@
   "exports": {
     ".": "./Sveltekit-Auth0.svelte"
   },
-  "type": "module"
+  "type": "module",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "auth0",
+    "authentication"
+  ]
 }
