@@ -92,3 +92,30 @@ VITE_LOGOUT_REDIRECT_URL = <your-logout-redirect-url>
 VITE_SHOW_LOGIN_BTNS = true
 VITE_SHOW_NAVBAR = false
 ```
+##### Get Auth0 User Info once Logged in
+
+```html
+<script>
+    import { user } from "sveltekit-auth0-js/authStore";
+ </script>
+
+<pre>{JSON.stringify($user, null, 2)}</pre>
+```
+##### Component Settings
+Insert this into your Navbar component
+```html
+<script>
+    import SveltekitAuth0 from "sveltekit-auth0-js/Sveltekit-Auth0.svelte";
+</script>
+
+<SveltekitAuth0
+    hideBtnIcon={false}
+    btn_login_text=""
+    btn_logout_text=""
+    imgSrcLogin="/feather/log-in.svg"
+    imgSrcLogout="/feather/log-out.svg"
+    iconSize="w-5"
+    _class="m-2 btn btn-ghost uppercase btn-primary text-sm"
+/>
+
+```

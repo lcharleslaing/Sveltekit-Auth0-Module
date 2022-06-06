@@ -1,11 +1,17 @@
 <script>
     import auth from "./auth0/authService";
-    import { user, isAuthenticated, popupOpen } from "./authStore";
+    import { user, isAuthenticated } from "./authStore";
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
 
-    export const showLoginBtns = import.meta.env.VITE_SHOW_LOGIN_BTNS;
-    export const showNavbar = import.meta.env.VITE_SHOW_NAVBAR;
+    export let hideBtnIcon;
+
+    export let _class;
+    export let btn_login_text;
+    export let btn_logout_text;
+    export let imgSrcLogin;
+    export let imgSrcLogout;
+    export let iconSize;
 
     let auth0Client;
 
@@ -27,22 +33,31 @@
     }
 </script>
 
-{#if showLoginBtns === "true" && showNavbar === "false"}
-    <h1>Login Buttons only</h1>
+<!-- ICON & TEXT BUTTONS -->
+<div class="">
     {#if $user}
-        <button on:click={logout} class="">Logout</button>
+        <button on:click={logout} class="btn {_class} flex place-items-center">
+            <span> {btn_logout_text}</span>
+            <span class="p-1" class:hidden={hideBtnIcon}
+                ><img
+                    src={imgSrcLogout}
+                    alt=""
+                    class="p-0.5 {iconSize} m-1 uppercase"
+                /></span
+            >
+        </button>
     {/if}
     {#if !$user}
-        <button on:click={login} class="">Login</button>
+        <button on:click={login} class="btn {_class} flex place-items-center">
+            <span> {btn_login_text}</span>
+            <span class="p-1" class:hidden={hideBtnIcon}
+                ><img
+                    src={imgSrcLogin}
+                    alt=""
+                    class="p-0.5 {iconSize} m-0.5 uppercase"
+                /></span
+            >
+        </button>
     {/if}
-{/if}
-{#if showNavbar === "true" && showLoginBtns === "false"}
-    <h1>Navbar</h1>
-    {#if $user}
-        <button on:click={logout} class="">Logout</button>
-    {/if}
-    {#if !$user}
-        <button on:click={login} class="">Login</button>
-    {/if}
-{/if}
+</div>
 <slot />
