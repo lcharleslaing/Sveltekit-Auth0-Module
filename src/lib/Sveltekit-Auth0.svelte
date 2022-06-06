@@ -1,6 +1,6 @@
 <script>
     import auth from "./auth0/authService";
-    import { user, isAuthenticated } from "/src/lib/stores/authStore";
+    import { user, isAuthenticated } from "$lib/stores/authStore";
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
 
