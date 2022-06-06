@@ -2,7 +2,11 @@
 
 If you are in need of authentication and you love Auth0 as much as I do, You've found the right package!
 
-Authentication can be one of the most frustrating parts of our creation process as developers and hopefully you find this as simple to use and save time.  Enjoy what you do and prosper at it!
+Authentication can be one of the most frustrating parts of our creation process as developers and hopefully you find this as simple to use and save time. 
+
+The initial reason for creating this was because of issues I had when creating the auth components, mounting everything in __layout.svelte file and then being able to place buttons in the Navbar.svelte component.  I had issues and this seemed to do everything I desired.
+
+Enjoy what you do and prosper at it!
 
 Follow the below instructions and you'll be up and running with Auth0 authentication in minutes.
 
@@ -82,17 +86,33 @@ VITE_AUTH0_CLIENT_ID = <your-auth0-client-id>
 VITE_LOGIN_REDIRECT_URL = "/somewhere"
 VITE_LOGOUT_REDIRECT_URL = "/somewhere-else"
 ```
+#### Create authStore in your project
+```bash
+./src/lib/stores/authStore.js (or .ts)
+```
+#### Add below code to store
+```javascript
+import { writable, derived } from "svelte/store";
+
+export const isAuthenticated = writable(false);
+export const user = writable({});
+export const popupOpen = writable(false);
+export const error = writable();
+
+```
+
 ##### Get Auth0 User Info once Logged in
 
 ```html
 <script>
-    import { user } from "sveltekit-auth0-js/authStore";
+    import { user } from "/src/lib/stores/authStore";
  </script>
 
 <pre>{JSON.stringify($user, null, 2)}</pre>
 ```
+
 ##### Component Settings
-Insert this into your Navbar component
+Insert this into your Navbar component or anywhere else you need it to be.
 ```html
 <script>
     import SveltekitAuth0 from "sveltekit-auth0-js/Sveltekit-Auth0.svelte";
